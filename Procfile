@@ -1,1 +1,1 @@
-web: python FrontEnd.py
+web: python com.perosa.FrontEnd.py
