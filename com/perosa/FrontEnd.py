@@ -17,12 +17,14 @@ class Home(object):
 
     @cherrypy.expose
     def index(self):
+        print("1")
         return "Hello from slackSimpleBot"
 
     @cherrypy.expose
     @cherrypy.tools.json_in()
     @cherrypy.tools.json_out()
     def bot(self):
+        print("2")
         data = cherrypy.request.json
         print(data)
 
@@ -34,5 +36,6 @@ class Home(object):
 
 if __name__ == '__main__':
     config = {'server.socket_host': '0.0.0.0'}
+    print("0", config)
     cherrypy.config.update(config)
     cherrypy.quickstart(Home())
