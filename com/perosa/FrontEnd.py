@@ -39,7 +39,7 @@ class Home(object):
 if __name__ == '__main__':
 
     def getPort():
-        return(os.getenv('PORT', 8080))
+        return(os.getenv('PORT', '8080'))
 
     port = getPort()
     print("port", port)
