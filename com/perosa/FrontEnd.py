@@ -39,12 +39,12 @@ class Home(object):
 if __name__ == '__main__':
 
     def getPort():
-        return(os.getenv('PORT', '8080'))
+        return(os.getenv('PORT', 8080))
 
     port = getPort()
     print("port", port)
 
-    config = {'server.socket_host': '0.0.0.0', 'server.socket_port': getPort()}
+    config = {'server.socket_host': '0.0.0.0', 'server.socket_port': int(getPort())}
 
     cherrypy.config.update(config)
     cherrypy.quickstart(Home())
