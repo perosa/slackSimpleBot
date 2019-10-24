@@ -1,4 +1,6 @@
 import cherrypy
+import os
+
 #import pandas as pd
 
 
@@ -35,7 +37,14 @@ class Home(object):
 
 
 if __name__ == '__main__':
-    config = {'server.socket_host': '0.0.0.0'}
-    print("0", config)
+
+    def getPort():
+        return(os.getenv('PORT', 8080))
+
+    port = getPort()
+    print("port", port)
+
+    config = {'server.socket_host': '0.0.0.0', 'server.socket_port': getPort()}
+
     cherrypy.config.update(config)
     cherrypy.quickstart(Home())
