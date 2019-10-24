@@ -1,0 +1,2 @@
+# slackSimpleBot
+Simple Slack chatbot
