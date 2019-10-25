@@ -18,14 +18,14 @@ class Home(object):
         return data['challenge'];
 
     @cherrypy.expose
-    def index(self):
+    def test(self):
         print("1")
         return "Hello from slackSimpleBot"
 
     @cherrypy.expose
     @cherrypy.tools.json_in()
     @cherrypy.tools.json_out()
-    def bot(self):
+    def index(self):
         print("2")
         data = cherrypy.request.json
         print(data)
