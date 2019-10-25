@@ -44,7 +44,7 @@ if __name__ == '__main__':
     port = getPort()
     print("port", port)
 
-    config = {'server.socket_host': '0.0.0.0', 'server.socket_port': getPort()}
+    config = {'server.socket_host': '0.0.0.0', 'server.socket_port': int(getPort())}
 
     cherrypy.config.update(config)
     cherrypy.quickstart(Home())
