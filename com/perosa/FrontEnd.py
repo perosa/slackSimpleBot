@@ -11,8 +11,8 @@ import os
 class Home(object):
 
 
-    def response(data):
-        return {'key': 'value'}
+    def response(data, msg):
+        return {'text': msg}
 
     def sendChallengeBack(self, data):
         return data['challenge'];
@@ -36,7 +36,7 @@ class Home(object):
         if data['type'] == 'url_verification':
             return self.sendChallengeBack(data)
         else:
-            return self.getMessage(data)
+            return self.response(self.getMessage(data))
 
 
 if __name__ == '__main__':
