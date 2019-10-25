@@ -17,6 +17,9 @@ class Home(object):
     def sendChallengeBack(self, data):
         return data['challenge'];
 
+    def getMessage(self, data):
+        return data['event']['text']
+
     @cherrypy.expose
     def test(self):
         print("1")
@@ -26,14 +29,14 @@ class Home(object):
     @cherrypy.tools.json_in()
     @cherrypy.tools.json_out()
     def index(self):
-        print("2")
+
         data = cherrypy.request.json
         print(data)
 
         if data['type'] == 'url_verification':
             return self.sendChallengeBack(data)
         else:
-            return "OK"
+            return self.getMessage(data)
 
 
 if __name__ == '__main__':
